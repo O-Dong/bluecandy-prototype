@@ -1,10 +1,25 @@
+# 유니티 기본
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
-.vscode/
-*.csproj
-*.sln
+[Ll]ogs/
+
+# 유니티 빌트인 메타
+*.pidb
+*.suo
 *.user
+*.userprefs
+*.unityproj
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+
+# OS별 무시 항목
 .DS_Store
+*.swp
+*.tmp
+Thumbs.db
