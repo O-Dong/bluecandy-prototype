@@ -18,22 +18,22 @@ EditorBuildSettings:
     path: Assets/Scenes/Talk/Talk1.unity
     guid: 2c05b10c677f78142ab5b147ae990256
   - enabled: 1
-    path: Assets/Scenes/Talk1_Move.unity
+    path: Assets/Scenes/Move/Talk1_Move.unity
     guid: fca1c359086ee284eb5260953043e1ac
   - enabled: 1
     path: Assets/Scenes/MiniGame/MiniGame1.unity
     guid: 13df02f994251ed42812a9aa95ec7b14
   - enabled: 1
     path: Assets/Scenes/Talk/Talk2.unity
-    guid: 740d42ad5afacde49a267158a61e3fb0
+    guid: ab5707a6f8a41c645af17eab03b492b3
   - enabled: 1
     path: Assets/Scenes/DialogueScene 2.unity
     guid: 868468881e57ab348ae3f1e81e67e594
   - enabled: 1
     path: Assets/Scenes/Talk/Talk3.unity
-    guid: 3831dfd2ac9458b4d9da34cbd92759e4
+    guid: 92e222a7095248b49aea71a0eeaf4d59
   - enabled: 1
-    path: Assets/Scenes/Talk3_Move.unity
+    path: Assets/Scenes/Move/Talk3_Move.unity
     guid: 910fc3fc9e381cd42954bd210ba5406f
   - enabled: 1
     path: Assets/Scenes/Talk/Talk4.unity

@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b374ccf6d06ead24a8dad9f35eb0cc42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Talk3
+  nextSceneName: Talk2 1
 --- !u!4 &1232802186
 Transform:
   m_ObjectHideFlags: 0
@@ -786,7 +786,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.956085, y: -3}
+  m_AnchoredPosition: {x: -4.956085, y: -3.0000305}
   m_SizeDelta: {x: -35.7648, y: 450.5886}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1848147362

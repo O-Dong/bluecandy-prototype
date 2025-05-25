@@ -17,55 +17,72 @@ public class DialogueManager : MonoBehaviour
     public List<DialogueLine> dialogueLines;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
-    public Image characterImage;
     public GameObject dialoguePanel;
     public Button nextButton;
 
+    public Image leftCharacterImage;
+    public Image rightCharacterImage;
+
     [Header("대화가 끝난 후 이동할 씬 이름")]
-    public string nextSceneName; // 인스펙터에서 설정 가능
+    public string nextSceneName;
 
     private int currentIndex = 0;
 
     void Start()
     {
+        leftCharacterImage.color = new Color(1, 1, 1, 0);
+        rightCharacterImage.color = new Color(1, 1, 1, 0);
+
         ShowLine();
         nextButton.onClick.AddListener(NextLine);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            NextLine();
+        }
     }
 
     void ShowLine()
     {
         if (currentIndex >= dialogueLines.Count)
         {
-            // 패널 비활성화 생략 → 한 프레임 깜빡임 방지
-            // dialoguePanel.SetActive(false);
-
             if (!string.IsNullOrEmpty(nextSceneName))
             {
                 SceneManager.LoadScene(nextSceneName);
             }
-
             return;
         }
 
         DialogueLine line = dialogueLines[currentIndex];
 
-        // 이름 출력
-        string speakerName = line.speaker.Replace("{playerName}", GlobalGameManager.Instance.playerName);
+        // 이름 치환
+        string speakerName = line.speaker == "주인공"
+            ? GlobalGameManager.Instance.playerName
+            : line.speaker;
         nameText.text = speakerName == "나레이션" ? "" : speakerName;
 
-        // 대사 출력 (playerName 치환 포함)
+        // 대사 치환
         string lineText = line.text.Replace("{playerName}", GlobalGameManager.Instance.playerName);
         dialogueText.text = lineText;
 
-        // 캐릭터 이미지 처리
-        if (line.faceSprite != null && line.speaker != "나레이션")
+        // 기본적으로 둘 다 어둡게 보이기
+        leftCharacterImage.color = new Color(0.3f, 0.3f, 0.3f, 1f);
+        rightCharacterImage.color = new Color(0.3f, 0.3f, 0.3f, 1f);
+
+        if (line.speaker == "주인공")
         {
-            characterImage.sprite = line.faceSprite;
-            characterImage.color = Color.white;
+            leftCharacterImage.sprite = line.faceSprite;
+            leftCharacterImage.color = Color.white;
+            leftCharacterImage.transform.SetAsLastSibling();
         }
-        else
+        else if (line.speaker == "꾸요")
         {
-            characterImage.color = new Color(1, 1, 1, 0); // 투명하게 처리
+            rightCharacterImage.sprite = line.faceSprite;
+            rightCharacterImage.color = Color.white;
+            rightCharacterImage.transform.SetAsLastSibling();
         }
     }
 
