@@ -255,7 +255,7 @@ MonoBehaviour:
     text: "\uBA4B\uC788\uC9C0?"
     faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
   - speaker: "\uAFB8\uC694"
-    text: "\uC5EC\uAE30\uAC00 \uBC14\uB85C \"\"\uC57C"
+    text: "\uC5EC\uAE30\uAC00 \uBC14\uB85C \"\uB2EC\uCF54\uBBF8\uC544\"\uC57C!"
     faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
   - speaker: "\uAFB8\uC694"
     text: "\uC6D0\uB798\uB294 \uC774\uAC83\uBCF4\uB2E4 \uB354 \uD654\uB824\uD558\uACE0
@@ -305,15 +305,14 @@ MonoBehaviour:
     text: "\uD734... \uADF8\uB798\uC11C \uB098\uB294 \uC65C \uB370\uB9AC\uACE0 \uC628\uAC74\uB370?"
     faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
   - speaker: "\uAFB8\uC694"
-    text: "\uC774 \uC0AC\uAC74\uC744 \uD574\uACB0\uD558\uB824\uBA74 \uB108\uCC98\uB7FC
-      \uD798\uC774 \uAC15\uD55C \uC544\uC774\uAC00 \uD544\uC694\uD574"
+    text: "\uB124\uAC00 \uD544\uC694\uD574!!"
     faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
   - speaker: "\uC8FC\uC778\uACF5"
     text: "\uB0B4\uAC00?"
     faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
   - speaker: "\uAFB8\uC694"
-    text: "\uC774 \uC0AC\uAC74\uC744 \uD574\uACB0\uD558\uB824\uBA74 \uB108\uCC98\uB7FC
-      \uD798\uC774 \uAC15\uD55C \uC544\uC774\uAC00 \uD544\uC694\uD574"
+    text: "\uC774\uBBF8 \uB2F9\uBD84\uC774 \uBE60\uC838\uC11C \uC810\uC810 \uB531\uB531\uD574\uC9C0\uACE0
+      \uC788\uB294 \uC7A5\uC560\uBB3C\uB4E4\uC744 \uB6AB\uACE0"
     faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
   - speaker: "\uAFB8\uC694"
     text: "\uC774 \uC0AC\uAC74\uC744 \uD574\uACB0\uD558\uB824\uBA74 \uB108\uCC98\uB7FC
@@ -337,7 +336,7 @@ MonoBehaviour:
     text: "\uADF8\uB807\uB2E4\uBA74.... \uD558\uB294 \uC218 \uC5C6\uC9C0"
     faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
   - speaker: "\uC8FC\uC778\uACF5"
-    text: "\uC815\uB9D0\uC774\uC9C0? \uC815\uB9D0 \uD574\uACB0\uB418\uB294 \uAC70\uC9C0?"
+    text: "\uB108\uB97C \uB3C4\uC640\uC904\uAC8C"
     faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
   - speaker: "\uAFB8\uC694"
     text: "\uC815\uB9D0???"
@@ -350,7 +349,7 @@ MonoBehaviour:
     text: "\uBB50... \uAC19\uC740 \uC0C1\uD669\uC774\uB124!"
     faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
   - speaker: "\uAFB8\uC694"
-    text: "\uC815\uB9D0???"
+    text: "\uC815\uB9D0 \uACE0\uB9C8\uC6CC!!"
     faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
   - speaker: "\uB098\uB808\uC774\uC158"
     text: "\uAFB8\uC694\uAC00 \uAF2C\uC625 \uAEF4\uC548\uB294\uB2E4."
@@ -361,9 +360,9 @@ MonoBehaviour:
   - speaker: "\uAFB8\uC694"
     text: "\uC6B0\uC120 \uC8FC\uBCC0\uBD80\uD130 \uB458\uB7EC\uBCFC\uAE4C?"
     faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
-  - speaker: "\uAFB8\uC694"
-    text: "\uC6B0\uC120 \uC8FC\uBCC0\uBD80\uD130 \uB458\uB7EC\uBCFC\uAE4C?"
-    faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
+  - speaker: ??
+    text: "\uC5B4\uC774!! \uAC70\uAE30\uC11C \uBB50\uD574?!"
+    faceSprite: {fileID: 21300000, guid: fd27f330fe376d243a7ff916e1559f62, type: 3}
   nameText: {fileID: 1846452098}
   dialogueText: {fileID: 1625881331}
   dialoguePanel: {fileID: 1703829430}

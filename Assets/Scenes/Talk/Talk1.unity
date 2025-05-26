@@ -250,7 +250,7 @@ MonoBehaviour:
     faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
   - speaker: ??
     text: "\uC0AC... \uC0B4\uB824\uC8FC\uC138\uC694..."
-    faceSprite: {fileID: 0}
+    faceSprite: {fileID: -2182124076254010665, guid: d3c86c095cbe1064a8a11c0f5bd93bef, type: 3}
   nameText: {fileID: 1846452098}
   dialogueText: {fileID: 1625881331}
   dialoguePanel: {fileID: 1703829430}

@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueLines:
-  - speaker: "\uC758\uBB38\uC758 \uC544\uC774"
+  - speaker: ??
     text: "\uC5B4...\uC5B4\uB77C?"
     faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
   - speaker: "\uB098\uB808\uC774\uC158"
@@ -233,7 +233,7 @@ MonoBehaviour:
   - speaker: "\uC8FC\uC778\uACF5"
     text: "\uAD1C\uCC2E\uC544?"
     faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
-  - speaker: "\uC758\uBB38\uC758 \uC544\uC774"
+  - speaker: ??
     text: "(\uBE64\uD788)"
     faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
   - speaker: "\uC8FC\uC778\uACF5"
@@ -243,7 +243,7 @@ MonoBehaviour:
     text: "\uC774\uB7F0 \uC704\uD5D8\uD55C \uACF3\uC5D0 \uC5B4\uB9B0 \uC544\uC774
       \uD63C\uC790 \uC624\uBA74 \uC548\uB3FC"
     faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
-  - speaker: "\uC758\uBB38\uC758 \uC544\uC774"
+  - speaker: ??
     text: "\uB09C \uC5B4\uB9B0 \uC560\uAC00 \uC544\uB2C8\uC57C!"
     faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
   - speaker: "\uC8FC\uC778\uACF5"
@@ -268,11 +268,11 @@ MonoBehaviour:
   - speaker: "\uC8FC\uC778\uACF5"
     text: "\uB108 \uC815\uCCB4\uAC00 \uBB50\uC57C?"
     faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
-  - speaker: "\uC758\uBB38\uC758 \uC544\uC774"
+  - speaker: ??
     text: "\uD760\uD760!!"
     faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
   - speaker: "\uAFB8\uC694"
-    text: "\uB098\uB294 \"\"\uCD9C\uC2E0, `\uAFB8\uC694`\uB77C\uACE0 \uD574"
+    text: "\uB098\uB294 \"\uB2EC\uCF54\uBBF8\uC544\"\uCD9C\uC2E0 \"\uAFB8\uC694\"\uC57C!"
     faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
   - speaker: "\uC8FC\uC778\uACF5"
     text: "\"\"? \uADF8\uAC8C \uBB34\uC2A8 \uC18C\uB9AC\uC57C?"

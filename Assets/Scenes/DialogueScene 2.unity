@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b374ccf6d06ead24a8dad9f35eb0cc42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Talk2 1
+  nextSceneName: Talk3
 --- !u!4 &1232802186
 Transform:
   m_ObjectHideFlags: 0

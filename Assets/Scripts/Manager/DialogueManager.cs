@@ -9,7 +9,7 @@ public class DialogueManager : MonoBehaviour
     [System.Serializable]
     public class DialogueLine
     {
-        public string speaker;      // "주인공", "꾸요", "나레이션"
+        public string speaker;      // "주인공", "꾸요", "바닐라", "나레이션"
         public string text;         // 대사
         public Sprite faceSprite;   // 표정 이미지
     }
@@ -20,8 +20,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialoguePanel;
     public Button nextButton;
 
-    public Image leftCharacterImage;
-    public Image rightCharacterImage;
+    public Image leftCharacterImage;   // 주인공 전용
+    public Image rightCharacterImage;  // 꾸요/바닐라 공용
 
     [Header("대화가 끝난 후 이동할 씬 이름")]
     public string nextSceneName;
@@ -64,11 +64,11 @@ public class DialogueManager : MonoBehaviour
             : line.speaker;
         nameText.text = speakerName == "나레이션" ? "" : speakerName;
 
-        // 대사 치환
+        // 대사 텍스트 치환
         string lineText = line.text.Replace("{playerName}", GlobalGameManager.Instance.playerName);
         dialogueText.text = lineText;
 
-        // 기본적으로 둘 다 어둡게 보이기
+        // 이미지 기본 어둡게
         leftCharacterImage.color = new Color(0.3f, 0.3f, 0.3f, 1f);
         rightCharacterImage.color = new Color(0.3f, 0.3f, 0.3f, 1f);
 
@@ -78,7 +78,9 @@ public class DialogueManager : MonoBehaviour
             leftCharacterImage.color = Color.white;
             leftCharacterImage.transform.SetAsLastSibling();
         }
-        else if (line.speaker == "꾸요")
+        else if (line.speaker == "꾸요" ||
+                line.speaker == "??" ||
+                line.speaker == "바닐라")
         {
             rightCharacterImage.sprite = line.faceSprite;
             rightCharacterImage.color = Color.white;
