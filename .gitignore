@@ -23,3 +23,15 @@
 *.swp
 *.tmp
 Thumbs.db
+
+# IDE 관련 폴더
+.vscode/
+.idea/
+
+# 유니티 기타 설정 폴더
+MemoryCaptures/
+UserSettings/
+
+# 유니티 빌드 결과물 무시
+Build/
+Builds/
