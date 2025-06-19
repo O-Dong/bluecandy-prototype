@@ -5,6 +5,7 @@ using UnityEngine.Video;
 public class CutsceneEndHandler : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
+    public string nextSceneName = "Talk3";  // 씬마다 설정 가능하게
 
     void Start()
     {
@@ -13,7 +14,10 @@ public class CutsceneEndHandler : MonoBehaviour
 
     void OnVideoEnd(VideoPlayer vp)
     {
-        SceneManager.LoadScene("Talk1");
+        if (!string.IsNullOrEmpty(nextSceneName))
+        {
+            SceneManager.LoadScene(nextSceneName);
+        }
     }
 }
 

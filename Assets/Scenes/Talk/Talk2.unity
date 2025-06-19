@@ -204,6 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 539213373}
   - component: {fileID: 539213372}
+  - component: {fileID: 539213374}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -226,97 +227,94 @@ MonoBehaviour:
   dialogueLines:
   - speaker: ??
     text: "\uC5B4...\uC5B4\uB77C?"
-    faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
+    faceSprite: {fileID: 21300000, guid: f02a4352907af964593120bbe2b4edba, type: 3}
   - speaker: "\uB098\uB808\uC774\uC158"
     text: "\uB3CC\uB369\uC774\uAC00 \uC0B0\uC0B0\uC870\uAC01\uC774 \uB0AC\uB2E4."
     faceSprite: {fileID: 0}
   - speaker: "\uC8FC\uC778\uACF5"
     text: "\uAD1C\uCC2E\uC544?"
-    faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
+    faceSprite: {fileID: 21300000, guid: bd680a52860007040bab9b78883ea906, type: 3}
   - speaker: ??
     text: "(\uBE64\uD788)"
-    faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
+    faceSprite: {fileID: 21300000, guid: f02a4352907af964593120bbe2b4edba, type: 3}
   - speaker: "\uC8FC\uC778\uACF5"
     text: "\uC65C \uC774\uB7F0 \uACF3\uC5D0 \uC788\uC5B4?"
-    faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
+    faceSprite: {fileID: 21300000, guid: bd680a52860007040bab9b78883ea906, type: 3}
   - speaker: "\uC8FC\uC778\uACF5"
     text: "\uC774\uB7F0 \uC704\uD5D8\uD55C \uACF3\uC5D0 \uC5B4\uB9B0 \uC544\uC774
       \uD63C\uC790 \uC624\uBA74 \uC548\uB3FC"
-    faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
+    faceSprite: {fileID: 21300000, guid: bd680a52860007040bab9b78883ea906, type: 3}
   - speaker: ??
     text: "\uB09C \uC5B4\uB9B0 \uC560\uAC00 \uC544\uB2C8\uC57C!"
-    faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
+    faceSprite: {fileID: 21300000, guid: f02a4352907af964593120bbe2b4edba, type: 3}
   - speaker: "\uC8FC\uC778\uACF5"
     text: "\uB124\uAC00 \uC5B4\uB9B0 \uC560\uAC00 \uC544\uB2C8\uBA74 \uBB50..."
-    faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
+    faceSprite: {fileID: 21300000, guid: bd680a52860007040bab9b78883ea906, type: 3}
   - speaker: "\uC8FC\uC778\uACF5"
     text: ...
-    faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
+    faceSprite: {fileID: 21300000, guid: bd680a52860007040bab9b78883ea906, type: 3}
   - speaker: "\uC8FC\uC778\uACF5"
     text: ???
-    faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
+    faceSprite: {fileID: 21300000, guid: bd680a52860007040bab9b78883ea906, type: 3}
   - speaker: "\uC8FC\uC778\uACF5"
     text: "(\uADF8\uB0E5 \uC694\uC0C8 \uC720\uD589\uD558\uB294 \uBA38\uB9AC\uC778\uAC00\uBCF4\uB2E4
       \uD588\uB294\uB370, \uB2E4\uC2DC \uBCF4\uB2C8 \uC800\uAC8C \uBB50\uC9C0?)"
-    faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
+    faceSprite: {fileID: 21300000, guid: bd680a52860007040bab9b78883ea906, type: 3}
   - speaker: "\uC8FC\uC778\uACF5"
     text: "(\uBE14\uB8E8\uBCA0\uB9AC... \uCD08\uCF54\uC258... \uC21F\uAC00\uB77D...)"
-    faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
+    faceSprite: {fileID: 21300000, guid: bd680a52860007040bab9b78883ea906, type: 3}
   - speaker: "\uC8FC\uC778\uACF5"
     text: "(\uC800\uAC74... \uC694X\uC815?)"
-    faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
+    faceSprite: {fileID: 21300000, guid: bd680a52860007040bab9b78883ea906, type: 3}
   - speaker: "\uC8FC\uC778\uACF5"
     text: "\uB108 \uC815\uCCB4\uAC00 \uBB50\uC57C?"
-    faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
+    faceSprite: {fileID: 21300000, guid: bd680a52860007040bab9b78883ea906, type: 3}
   - speaker: ??
     text: "\uD760\uD760!!"
-    faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
+    faceSprite: {fileID: 21300000, guid: f02a4352907af964593120bbe2b4edba, type: 3}
   - speaker: "\uAFB8\uC694"
     text: "\uB098\uB294 \"\uB2EC\uCF54\uBBF8\uC544\"\uCD9C\uC2E0 \"\uAFB8\uC694\"\uC57C!"
-    faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
+    faceSprite: {fileID: 21300000, guid: f02a4352907af964593120bbe2b4edba, type: 3}
   - speaker: "\uC8FC\uC778\uACF5"
-    text: "\"\"? \uADF8\uAC8C \uBB34\uC2A8 \uC18C\uB9AC\uC57C?"
-    faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
+    text: "\"\uB2EC\uCF54\uBBF8\uC544\"? \uADF8\uAC8C \uBB34\uC2A8 \uC18C\uB9AC\uC57C?"
+    faceSprite: {fileID: 21300000, guid: bd680a52860007040bab9b78883ea906, type: 3}
   - speaker: "\uAFB8\uC694"
     text: "\uADF8\uAC8C \uC5B4\uB514\uB0D0\uBA74..."
-    faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
+    faceSprite: {fileID: 21300000, guid: f02a4352907af964593120bbe2b4edba, type: 3}
   - speaker: "\uAFB8\uC694"
     text: "\uC6D0\uB798 \uB0B4\uAC00 \uC788\uB358 \uACF3\uC778\uB370......."
-    faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
+    faceSprite: {fileID: 21300000, guid: f02a4352907af964593120bbe2b4edba, type: 3}
   - speaker: "\uAFB8\uC694"
     text: "\uAC70\uAE30\uAC00 \uC9C0\uAE08..............."
-    faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
+    faceSprite: {fileID: 21300000, guid: f02a4352907af964593120bbe2b4edba, type: 3}
   - speaker: "\uAFB8\uC694"
     text: "\uC73C\uC544\uC544\uC544\uC544\uC544\uC544\uC559!!!!!!!!!"
-    faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
-  - speaker: "\uB098\uB808\uC774\uC158"
-    text: "\uAFB8\uC694\uAC00 \uAC11\uC790\uAE30 \uC6B8\uAE30 \uC2DC\uC791\uD588\uB2E4"
-    faceSprite: {fileID: 0}
+    faceSprite: {fileID: 21300000, guid: c818f331d4f41e34096a099f5206faed, type: 3}
   - speaker: "\uC8FC\uC778\uACF5"
     text: "\uC7A0...\uC7A0\uAE50\uB9CC!"
-    faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
+    faceSprite: {fileID: 21300000, guid: bd680a52860007040bab9b78883ea906, type: 3}
   - speaker: "\uC8FC\uC778\uACF5"
     text: "\uC6B8\uC9C0\uB9D0\uACE0 \uC9C4\uC815\uD574\uBD10....!"
-    faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
+    faceSprite: {fileID: 21300000, guid: bd680a52860007040bab9b78883ea906, type: 3}
   - speaker: "\uC8FC\uC778\uACF5"
     text: "\uC65C \uADF8\uB798... \uAD1C\uCC2E\uC544..??"
-    faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
+    faceSprite: {fileID: 21300000, guid: bd680a52860007040bab9b78883ea906, type: 3}
   - speaker: "\uAFB8\uC694"
     text: .....
-    faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
+    faceSprite: {fileID: 21300000, guid: f02a4352907af964593120bbe2b4edba, type: 3}
   - speaker: "\uAFB8\uC694"
     text: "\uB09C... \uB09C \uADF8\uB0E5...."
-    faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
+    faceSprite: {fileID: 21300000, guid: f02a4352907af964593120bbe2b4edba, type: 3}
   - speaker: "\uAFB8\uC694"
     text: "\uC6D0\uB798\uB300\uB85C \uB3CC\uC544\uAC00\uAE38 \uBC14\uB77C\uB294 \uAC83
       \uBFD0\uC774\uC57C!!"
-    faceSprite: {fileID: 6009233487323616414, guid: f02a4352907af964593120bbe2b4edba, type: 3}
+    faceSprite: {fileID: 21300000, guid: f02a4352907af964593120bbe2b4edba, type: 3}
   - speaker: "\uB098\uB808\uC774\uC158"
     text: "\uAC11\uC790\uAE30 \uAFB8\uC694\uAC00 \uB2EC\uB824\uB4E0\uB2E4."
     faceSprite: {fileID: 0}
   - speaker: "\uC8FC\uC778\uACF5"
     text: "\uBB50..\uBB50\uC57C?!"
-    faceSprite: {fileID: -3305212838277812870, guid: bd680a52860007040bab9b78883ea906, type: 3}
+    faceSprite: {fileID: 21300000, guid: bd680a52860007040bab9b78883ea906, type: 3}
   nameText: {fileID: 1846452098}
   dialogueText: {fileID: 1625881331}
   dialoguePanel: {fileID: 1703829430}
@@ -339,6 +337,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &539213374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539213371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3418acfe521b33e498d35f4ff0b5bc0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteToShake: {fileID: 311369687}
 --- !u!1 &600495645
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,8 +540,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 252, y: -51.999}
-  m_SizeDelta: {x: 275.7821, y: 385.04}
+  m_AnchoredPosition: {x: 264, y: -59.325}
+  m_SizeDelta: {x: 503.7158, y: 483.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &773957577
 MonoBehaviour:
@@ -604,8 +615,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -259, y: -51.998}
-  m_SizeDelta: {x: 258.4602, y: 385.0371}
+  m_AnchoredPosition: {x: -263, y: -55}
+  m_SizeDelta: {x: 589.876, y: 475}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1099119292
 MonoBehaviour:
@@ -1058,8 +1069,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.009, y: -20.232}
-  m_SizeDelta: {x: 347.7947, y: 40.4648}
+  m_AnchoredPosition: {x: -6.4078064, y: -22.705002}
+  m_SizeDelta: {x: 312.96, y: 67.9692}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1625881331
 MonoBehaviour:
@@ -1083,8 +1094,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: talk something...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c9cf9ea1f1572d94e8fdd2e81b4538f6, type: 2}
-  m_sharedMaterial: {fileID: -4351531450820797950, guid: c9cf9ea1f1572d94e8fdd2e81b4538f6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4802b0719c05c8442afbf92a2753c759, type: 2}
+  m_sharedMaterial: {fileID: 6448916773401559984, guid: 4802b0719c05c8442afbf92a2753c759, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1197,8 +1208,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 167, y: 45}
-  m_SizeDelta: {x: 488.5324, y: 143.6996}
+  m_AnchoredPosition: {x: 0, y: 45}
+  m_SizeDelta: {x: 800, y: 153.0992}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1703829432
 MonoBehaviour:
@@ -1351,7 +1362,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -39.999, y: 18.721}
+  m_AnchoredPosition: {x: -39.999, y: 24.7}
   m_SizeDelta: {x: 245.7777, y: 37.4404}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1846452098
@@ -1376,8 +1387,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC8FC\uC778\uACF5"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c9cf9ea1f1572d94e8fdd2e81b4538f6, type: 2}
-  m_sharedMaterial: {fileID: -4351531450820797950, guid: c9cf9ea1f1572d94e8fdd2e81b4538f6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 99021f6b9a13e4a4c89f924076219d96, type: 2}
+  m_sharedMaterial: {fileID: 134088861503412744, guid: 99021f6b9a13e4a4c89f924076219d96, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1401,13 +1412,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23
-  m_fontSizeBase: 23
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535

@@ -41,6 +41,45 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MiniGame/MiniGame2.unity
     guid: 45f27dfad20697d46bcc2f5ddc878211
+  - enabled: 1
+    path: Assets/Scenes/Talk/Talk4_1.unity
+    guid: 1b83fe9187807004183078cee5d8e846
+  - enabled: 1
+    path: Assets/Scenes/Talk/Talk5.unity
+    guid: 1064bea0107624548b5cc47553fb9a63
+  - enabled: 1
+    path: Assets/Scenes/Move/Talk5_Move.unity
+    guid: 27847fbbe61101847bd7fc7712b2a67e
+  - enabled: 1
+    path: Assets/Scenes/Talk/Talk6.unity
+    guid: bcc4e616e9dc66a44a8cd56dc3f44d18
+  - enabled: 1
+    path: Assets/Scenes/Talk/Talk6_1.unity
+    guid: 708ae4da57d44644ba5a20b01f7dfb97
+  - enabled: 1
+    path: Assets/Scenes/MiniGame/MiniGame3.unity
+    guid: e47bf459480f3794e84ac8745531f4cd
+  - enabled: 1
+    path: Assets/Scenes/Talk/Talk7.unity
+    guid: 43920b8ce8f03fe41b5e278fa0fed9eb
+  - enabled: 1
+    path: Assets/Scenes/Move/Talk8_Move.unity
+    guid: b1c2bfca1fe6f0941b0f1d86ed618017
+  - enabled: 1
+    path: Assets/Scenes/Talk/Talk8.unity
+    guid: b9c7631b152a25d46a0d276a59adb31b
+  - enabled: 1
+    path: Assets/Scenes/MiniGame/MiniGame4.unity
+    guid: 379317d4cdd970f438c91fe83bb54a21
+  - enabled: 1
+    path: Assets/Scenes/Talk/Talk8_1.unity
+    guid: 4cae52cd0bff8d54690109285e4baec9
+  - enabled: 1
+    path: Assets/Scenes/Move/Talk9_Move 1.unity
+    guid: dbcf5cebe3b000d47bce8694f8edc297
+  - enabled: 1
+    path: Assets/Scenes/Talk/Talk9.unity
+    guid: 6e1a1449e01c5cf468ce78d57d4cfb91
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

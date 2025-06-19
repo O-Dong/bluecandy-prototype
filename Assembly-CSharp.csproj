@@ -65,20 +65,29 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Game\ChocoFillController.cs" />
     <Compile Include="Assets\Scripts\SkipCutscene.cs" />
     <Compile Include="Assets\Scripts\NameInputHandler.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Manager\WorldMapController.cs" />
+    <Compile Include="Assets\Scripts\Game\RockBreaker.cs" />
+    <Compile Include="Assets\Scripts\Talk\Talk1Controller.cs" />
     <Compile Include="Assets\Scripts\EggBreaker.cs" />
     <Compile Include="Assets\Scripts\Game\ArrowGameManager.cs" />
     <Compile Include="Assets\Scripts\Manager\DialogueManager.cs" />
+    <Compile Include="Assets\Scripts\Talk\Talk6_1Controller.cs" />
     <Compile Include="Assets\Scripts\CameraShake.cs" />
     <Compile Include="Assets\Scripts\CutsceneEndHandler.cs" />
     <Compile Include="Assets\Scripts\GameStartHandler.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Manager\GlobalGameManager.cs" />
-    <Compile Include="Assets\Scripts\RockBreaker.cs" />
+    <Compile Include="Assets\Scripts\Talk\Talk7Controller.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Talk\Talk2Controller.cs" />
+    <Compile Include="Assets\Scripts\Game\StrawberryGame.cs" />
+    <Compile Include="Assets\Scripts\Game\EggBreakerGameManager.cs" />
     <Compile Include="Assets\Scripts\KkuyoInteraction.cs" />
+    <Compile Include="Assets\Scripts\Manager\MapPoint.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

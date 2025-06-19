@@ -10,18 +10,30 @@ public class ArrowGameManager : MonoBehaviour
     [Header("UI")]
     public GameObject startPopupPanel;
     public Button startButton;
-    public TextMeshProUGUI lifeText;
-    public TextMeshProUGUI timerText;
 
     [Header("게임 진행")]
     public Transform player;
-    public List<GameObject> arrowGroups; // Stage1Arrows, Stage2Arrows, Stage3Arrows
+    public List<GameObject> arrowGroups;
     public int maxLife = 3;
     public float stageTimeLimit = 10f;
 
     [Header("스테이지 이미지")]
     public Image stageImage;
     public List<Sprite> stageSprites;
+
+    [Header("사운드")]
+    public AudioSource moveSound;
+    public AudioSource damageSound;
+    public AudioSource bgmAudioSource;
+    public AudioSource clockAlarmSound;
+
+    [Header("하트 UI")]
+    public Image[] heartImages;
+    public Sprite heartFull;
+    public Sprite heartBroken;
+
+    [Header("타이머 시계 UI")]
+    public Image clockImage;
 
     private List<List<Image>> stageArrowImages = new();
     private List<KeyCode[]> stageAnswers = new();
@@ -32,10 +44,14 @@ public class ArrowGameManager : MonoBehaviour
     private int currentLife;
     private float currentTimer;
     private bool isGameStarted = false;
+    private bool isClockShaking = false;
+    public float clockAlarmThreshold = 3f;
+    private bool canCountTime = false;
+
+    private SpriteRenderer playerSpriteRenderer;
 
     void Awake()
     {
-        // arrowGroups의 자식 Image 수집
         foreach (GameObject group in arrowGroups)
         {
             List<Image> images = new();
@@ -47,78 +63,82 @@ public class ArrowGameManager : MonoBehaviour
             stageArrowImages.Add(images);
         }
 
-        // 스테이지별 정답 시퀀스 설정
-        stageAnswers.Add(new KeyCode[] {
-            KeyCode.D, KeyCode.D, KeyCode.W, KeyCode.W,
-            KeyCode.D, KeyCode.D, KeyCode.D, KeyCode.Space
-        });
-
-        stageAnswers.Add(new KeyCode[] {
-            KeyCode.A, KeyCode.A, KeyCode.A,
-            KeyCode.S, KeyCode.S,
-            KeyCode.D, KeyCode.D,
-            KeyCode.S,
-            KeyCode.A, KeyCode.A, KeyCode.A, KeyCode.A,
-            KeyCode.W, KeyCode.W, KeyCode.W,
-            KeyCode.A,
-            KeyCode.Space
-        });
-
-        stageAnswers.Add(new KeyCode[] {
-            KeyCode.D, KeyCode.D, KeyCode.D,
-            KeyCode.S,
-            KeyCode.D, KeyCode.D,
-            KeyCode.W,
-            KeyCode.D, KeyCode.D,
-            KeyCode.S, KeyCode.S, KeyCode.S,
-            KeyCode.A, KeyCode.A, KeyCode.A,
-            KeyCode.S,
-            KeyCode.D, KeyCode.D, KeyCode.D, KeyCode.D, KeyCode.D, KeyCode.D,
-            KeyCode.W, KeyCode.W,
-            KeyCode.A,
-            KeyCode.W,
-            KeyCode.D, KeyCode.D,
-            KeyCode.Space
-        });
-
+        stageAnswers.Add(new KeyCode[] { KeyCode.D, KeyCode.D, KeyCode.W, KeyCode.W, KeyCode.D, KeyCode.D, KeyCode.Space });
+        stageAnswers.Add(new KeyCode[] { KeyCode.A, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.D, KeyCode.D, KeyCode.S, KeyCode.S, KeyCode.A, KeyCode.A, KeyCode.A, KeyCode.A, KeyCode.A, KeyCode.W, KeyCode.W, KeyCode.W, KeyCode.Space });
+        stageAnswers.Add(new KeyCode[] { KeyCode.D, KeyCode.D, KeyCode.D, KeyCode.S, KeyCode.D, KeyCode.D, KeyCode.W, KeyCode.D, KeyCode.D, KeyCode.S, KeyCode.S, KeyCode.S, KeyCode.A, KeyCode.A, KeyCode.A, KeyCode.A, KeyCode.S, KeyCode.A, KeyCode.A, KeyCode.A, KeyCode.W, KeyCode.W, KeyCode.A, KeyCode.A, KeyCode.Space });
     }
 
     void Start()
     {
-        stageImage.gameObject.SetActive(false); // 처음엔 꺼두기
+        Screen.SetResolution(1920, 1080, false);
         currentLife = maxLife;
         isGameStarted = false;
+
+        foreach (var group in arrowGroups)
+            group.SetActive(false);
+
+        if (bgmAudioSource && !bgmAudioSource.isPlaying)
+        {
+            bgmAudioSource.loop = true;
+            bgmAudioSource.Play();
+        }
+
+        playerSpriteRenderer = player.GetComponent<SpriteRenderer>();
 
         startButton.onClick.AddListener(() =>
         {
             startPopupPanel.SetActive(false);
             isGameStarted = true;
-            StartStage();
+
+            if (stageSprites[currentStage] != null)
+            {
+                stageImage.sprite = stageSprites[currentStage];
+                stageImage.gameObject.SetActive(true);
+                StartCoroutine(HideStageImageThenStartStage());
+            }
+            else
+            {
+                StartStage();
+            }
         });
+
+        UpdateHearts();
     }
 
     void Update()
     {
-        if (!isGameStarted) return;
-        if (currentStage >= stageAnswers.Count) return;
+        if (!isGameStarted || currentStage >= stageAnswers.Count) return;
 
-        currentTimer -= Time.deltaTime;
-        timerText.text = $"TIME: {Mathf.Ceil(currentTimer)}";
-
-        if (currentTimer <= 0f)
+        if (canCountTime)
         {
-            HandleWrongInput();
-            return;
+            currentTimer -= Time.deltaTime;
+
+            if (clockImage != null)
+                clockImage.fillAmount = currentTimer / stageTimeLimit;
+
+            if (currentTimer <= clockAlarmThreshold && !isClockShaking)
+            {
+                isClockShaking = true;
+                StartCoroutine(ShakeClock(clockImage.rectTransform));
+
+                if (clockAlarmSound != null && !clockAlarmSound.isPlaying)
+                    clockAlarmSound.Play();
+            }
+
+            if (currentTimer <= 0f)
+            {
+                HandleWrongInput();
+                return;
+            }
         }
 
         if (Input.anyKeyDown)
         {
+            if (Input.GetKeyDown(KeyCode.A)) playerSpriteRenderer.flipX = true;
+            if (Input.GetKeyDown(KeyCode.D)) playerSpriteRenderer.flipX = false;
+
             if (currentInputIndex >= stageAnswers[currentStage].Length ||
-                currentInputIndex >= currentArrowImages.Count)
-            {
-                Debug.LogWarning("시퀀스 또는 화살표 이미지 범위를 초과함");
-                return;
-            }
+                currentInputIndex >= currentArrowImages.Count) return;
 
             KeyCode expected = stageAnswers[currentStage][currentInputIndex];
             if (Input.GetKeyDown(expected))
@@ -128,10 +148,7 @@ public class ArrowGameManager : MonoBehaviour
                 currentInputIndex++;
 
                 if (currentInputIndex >= stageAnswers[currentStage].Length)
-                {
-                    Debug.Log($"스테이지 {currentStage + 1} 클리어!");
                     MoveForward();
-                }
             }
             else if (IsArrowKeyDown())
             {
@@ -140,114 +157,108 @@ public class ArrowGameManager : MonoBehaviour
         }
     }
 
-    // 변경 부분만 표시: StartStage()
-    void StartStage()
-    {
-        Debug.Log($"[DEBUG] StartStage: {currentStage}");
-
-        if (currentStage >= arrowGroups.Count)
-        {
-            Debug.LogError($"[ERROR] currentStage {currentStage}가 arrowGroups.Count {arrowGroups.Count}보다 큼");
-            return;
-        }
-
-        currentInputIndex = 0;
-        currentTimer = stageTimeLimit;
-
-        // 스테이지 UI 설정
-        Debug.Log("[DEBUG] arrowGroups 활성화 상태 설정 시작");
-        for (int i = 0; i < arrowGroups.Count; i++)
-        {
-            bool active = i == currentStage;
-            Debug.Log($"arrowGroups[{i}].SetActive({active})");
-            arrowGroups[i].SetActive(active);
-        }
-
-        if (currentStage >= stageArrowImages.Count)
-        {
-            Debug.LogError($"[ERROR] currentStage {currentStage}가 stageArrowImages.Count {stageArrowImages.Count}보다 큼");
-            return;
-        }
-
-        currentArrowImages = stageArrowImages[currentStage];
-
-        foreach (var img in currentArrowImages)
-        {
-            img.color = new Color(1, 1, 1, 1);
-        }
-
-        lifeText.text = $"LIFE: {currentLife}";
-    }
-
-
-    // 변경 부분만 표시: MoveForward()
     void MoveForward()
     {
         currentStage++;
-
         if (currentStage >= stageAnswers.Count)
         {
-            Debug.Log("모든 스테이지 클리어!");
-            // SceneManager.LoadScene("ClearScene");
+            SceneManager.LoadScene("Talk4_1");
             return;
         }
 
-        // 다음 스테이지 이미지 보여주기
-        if (currentStage < stageSprites.Count)
+        if (stageSprites[currentStage] != null)
         {
-            if (stageSprites[currentStage] != null)
-            {
-                stageImage.sprite = stageSprites[currentStage];
-                stageImage.gameObject.SetActive(true);
-            }
-            else
-            {
-                Debug.LogWarning($"[WARN] stageSprites[{currentStage}] is null");
-            }
+            stageImage.sprite = stageSprites[currentStage];
+            stageImage.gameObject.SetActive(true);
+            StartCoroutine(HideStageImageThenStartStage());
         }
-
-        StartCoroutine(HideStageImageAndStartNextStage());
+        else
+        {
+            StartStage();
+        }
     }
 
-
-    IEnumerator HideStageImageAndStartNextStage()
+    IEnumerator HideStageImageThenStartStage()
     {
         yield return new WaitForSeconds(1.5f);
         stageImage.gameObject.SetActive(false);
         StartStage();
     }
 
+    void StartStage()
+    {
+        currentInputIndex = 0;
+        isClockShaking = false;
+        canCountTime = false;
+
+        if (clockAlarmSound != null && clockAlarmSound.isPlaying)
+            clockAlarmSound.Stop();
+
+        currentTimer = stageTimeLimit;
+        canCountTime = true;
+
+        for (int i = 0; i < arrowGroups.Count; i++)
+            arrowGroups[i].SetActive(i == currentStage);
+
+        currentArrowImages = stageArrowImages[currentStage];
+        foreach (var img in currentArrowImages)
+            img.color = new Color(1, 1, 1, 1);
+    }
+
     void MovePlayer()
     {
-        Vector3 pos = currentArrowImages[currentInputIndex].rectTransform.position;
-        pos.z = player.position.z;
-        pos.y += 0.5f;
-        player.position = pos;
+        Vector3 targetPos = currentArrowImages[currentInputIndex].rectTransform.position;
+        targetPos.z = player.position.z;
+        targetPos.y += 0.5f;
+
+        StopAllCoroutines();
+        StartCoroutine(SmoothMoveTo(player, targetPos, 0.15f));
+        if (moveSound) moveSound.Play();
+    }
+
+    IEnumerator SmoothMoveTo(Transform target, Vector3 destination, float duration)
+    {
+        Vector3 start = target.position;
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            target.position = Vector3.Lerp(start, destination, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        target.position = destination;
     }
 
     void HandleWrongInput()
     {
         if (currentInputIndex < currentArrowImages.Count)
-        {
             StartCoroutine(ShakeImage(currentArrowImages[currentInputIndex]));
-        }
+
+        if (damageSound) damageSound.Play();
 
         currentLife--;
-        lifeText.text = $"LIFE: {currentLife}";
+        UpdateHearts();
 
         if (currentLife <= 0)
-        {
-            Debug.Log("실패! 다시 도전!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+            StartCoroutine(RestartSceneAfterDelay());
+    }
+
+    void UpdateHearts()
+    {
+        for (int i = 0; i < heartImages.Length; i++)
+            heartImages[i].sprite = i < currentLife ? heartFull : heartBroken;
+    }
+
+    IEnumerator RestartSceneAfterDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     bool IsArrowKeyDown()
     {
-        return Input.GetKeyDown(KeyCode.W) ||
-               Input.GetKeyDown(KeyCode.A) ||
-               Input.GetKeyDown(KeyCode.S) ||
-               Input.GetKeyDown(KeyCode.D) ||
+        return Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) ||
+               Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) ||
                Input.GetKeyDown(KeyCode.Space);
     }
 
@@ -264,20 +275,37 @@ public class ArrowGameManager : MonoBehaviour
     IEnumerator ShakeImage(Image img)
     {
         RectTransform rt = img.GetComponent<RectTransform>();
-        Vector2 origin = rt.anchoredPosition;
+        Vector2 originalPos = rt.anchoredPosition;
+        float elapsed = 0f;
+        float duration = 0.3f;
+        float intensity = 0.2f;
 
-        float time = 0f;
-        float duration = 0.15f;
-        float intensity = 3f;
-
-        while (time < duration)
+        while (elapsed < duration)
         {
-            float offset = Mathf.Sin(time * 50f) * intensity;
-            rt.anchoredPosition = origin + new Vector2(offset, 0);
-            time += Time.deltaTime;
+            float x = Random.Range(-1f, 1f) * intensity;
+            float y = Random.Range(-1f, 1f) * intensity;
+            rt.anchoredPosition = originalPos + new Vector2(x, y);
+            elapsed += Time.deltaTime;
             yield return null;
         }
+        rt.anchoredPosition = originalPos;
+    }
 
-        rt.anchoredPosition = origin;
+    IEnumerator ShakeClock(RectTransform rt)
+    {
+        Vector2 originalPos = rt.anchoredPosition;
+        float elapsed = 0f;
+        float duration = 1f;
+        float intensity = 5f;
+
+        while (elapsed < duration)
+        {
+            float x = Random.Range(-1f, 1f) * intensity;
+            float y = Random.Range(-1f, 1f) * intensity;
+            rt.anchoredPosition = originalPos + new Vector2(x, y);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        rt.anchoredPosition = originalPos;
     }
 }
